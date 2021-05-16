@@ -1,8 +1,8 @@
 # GoldenFace OPENSOURCE SOFTWARE
 An Image Processing Library About Calculating Face Golden Ratio, Facial Cosine Similarity and More
 
-Ümit Aksoylu 2020 © M.I.T  License
-
+Ümit Aksoylu 2021 © M.I.T  License
+Please check example.py for practical usage.
 
 ## Installing Library:
 ```bash
@@ -12,12 +12,47 @@ pip install GoldenFace
 #### Required Libraries (Dependencies)
 opencv-python
 
-## Basic Functions
+## Core Functions
 
-Reading face from image file:
-```bash
+Reading a face image as goldenFace object:
+```python
 umitFace = GoldenFace.goldenFace("umit.png")
 ```
+Printing face vectors:
+```python
+print(umitFace.face2Vec())
+```
+Printing Geometric Facial Golden Ratio (Between 0-100):
+```python
+print(umitFace.geometricRatio())
+```
+Printing Facial Cosine Similarity With A Golden Face (Between 1.0-0):
+```python
+print(umitFace.similarityRatio())
+```
+
+Saving a goldenFace objects vectors as json file:
+```python
+umitFace.saveFaceVec("umitFaceVectors.json")
+```
+
+
+Reading a face as vectors from json file:
+```python
+loadedFace = functions.loadFaceVec("face.json")
+```
+Calculating face similarity between two face:
+```python
+print(umitFace.faceSimilarity(loadedFace))
+```
+
+## Ratio Calculating Functions
+
+
+
+
+
+
 
 ## Drawing Functions
 These functions allow you to draw landmarks/ border lines on face
@@ -25,42 +60,46 @@ These functions allow you to draw landmarks/ border lines on face
 color = (255,255,0)
 
 Draw a cover on face
-```bash
-p1.drawFaceCover(color)
+```python
+umitFace.drawFaceCover(color)
 ```
 Draw border lines on face
-```bash
-p1.drawLandmark(color)
+```python
+umitFace.drawLandmark(color)
 ```
 Draw Trichion-Zygoma-Menton line on face
-```bash
-p1.drawTZM(color)
+```python
+umitFace.drawTZM(color)
 ```
 Draw Trichion-Glabella-Subnazale-Menton line on face
-```bash
-p1.drawTGSM(color)
+```python
+umitFace.drawTGSM(color)
 ```
 Draw Column Parsed line on face
-```bash
-p1.drawVFM(color)
+```python
+umitFace.drawVFM(color)
 ```
 Draw Trichion-Subnazale-Menton line on face
-```bash
-p1.drawTSM(color)
+```python
+umitFace.drawTSM(color)
 ```
 Draw Lateral cantus-Chelion
-```bash
-p1.drawLC(color)
+```python
+umitFace.drawLC(color)
 ```
 Draw facial golden ratio mask on face
-```bash
-p1.drawMask(color)
+```python
+umitFace.drawMask(color)
 ```
 Draw facial important points on face
-```bash
-p1.drawFacialPoints(color)
+```python
+umitFace.drawFacialPoints(color)
 ```
 Draw all landmark points on face
-```bash
-p1.drawLandmarks(color)
+```python
+umitFace.drawLandmarks(color)
+```
+## Write processed goldenFace object as image:
+```python
+umitFace.writeImage("umit_analyzed.jpeg")
 ```
