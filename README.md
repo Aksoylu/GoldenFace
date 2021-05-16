@@ -32,3 +32,35 @@ Draw border lines on face
 ```bash
 p1.drawLandmark(color)
 ```
+Draw Trichion-Zygoma-Menton line on face
+```bash
+p1.drawTZM(color)
+```
+Draw Trichion-Glabella-Subnazale-Menton line on face
+```bash
+p1.drawTGSM(color)
+```
+Draw Column Parsed line on face
+```bash
+p1.drawVFM(color)
+```
+Draw Trichion-Subnazale-Menton line on face
+```bash
+p1.drawTSM(color)
+```
+Draw Lateral cantus-Chelion
+```bash
+p1.drawLC(color)
+```
+Draw facial golden ratio mask on face
+```bash
+p1.drawMask(color)
+```
+Draw facial important points on face
+```bash
+p1.drawFacialPoints(color)
+```
+Draw all landmark points on face
+```bash
+p1.drawLandmarks(color)
+```
