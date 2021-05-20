@@ -1,6 +1,18 @@
 # GoldenFace OPENSOURCE SOFTWARE
 An Image Processing Library About Calculating Face Golden Ratio, Facial Cosine Similarity and More
 
+## How does it work
+
+The golden face library creates face vectors using biomath principles and calculates the facial golden ratio.
+
+Biomath golden ratio prenciples:
+![alt text](biomath.png "Biomath Prenciples")
+
+
+Facial golden ratio analysis of goldenface library:
+![alt text](usage.gif "Biomath Prenciples")
+
+
 Ümit Aksoylu 2021 © M.I.T  License
 Please check example.py for practical usage.
 
