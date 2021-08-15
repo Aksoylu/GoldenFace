@@ -25,6 +25,7 @@ pip install GoldenFace
 
 #### Required Libraries (Dependencies)
 opencv-python
+opencv-contrib-python
 
 ## Core Functions
 
