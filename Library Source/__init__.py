@@ -41,6 +41,8 @@ class goldenFace:
             self.faceBorders = faceBorders
             _, self.landmarks = self.landmark_detector.fit(self.image_gray, self.faces)
             self.facePoints = landmark.detectLandmark(self.landmarks)
+                for key, value in self.facePoints.items():
+                    self.facePoints[key] = [int(val) for val in value]
 
 
             break
