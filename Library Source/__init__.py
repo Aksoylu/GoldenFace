@@ -12,6 +12,7 @@ import GoldenFace.functions
 import GoldenFace.landmark
 import time
 import pkg_resources
+import numpy as np
 
 class goldenFace:
 
@@ -40,6 +41,7 @@ class goldenFace:
             (x,y,w,h) = faceBorders
             self.faceBorders = faceBorders
             _, self.landmarks = self.landmark_detector.fit(self.image_gray, self.faces)
+            self.landmarks = (self.landmarks[0].astype(np.int), )
             self.facePoints = landmark.detectLandmark(self.landmarks)
                 for key, value in self.facePoints.items():
                     self.facePoints[key] = [int(val) for val in value]
