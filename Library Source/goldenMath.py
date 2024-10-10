@@ -80,21 +80,21 @@ def drawTGSM(img,faceBorders,facePoints,color):
     (x,y,w,h) = faceBorders
 
     #Trichion
-    cv2.line(img, (x,y), (x+w,y), red, 2) 
+    cv2.line(img, (int(x), int(y)), (int(x+w), int(y)), red, 2) 
 
     #Glabella
 
-    cv2.line(img, (facePoints["left_eyebrow_right"][0], facePoints["left_eyebrow_right"][1] ), (facePoints["right_eyebrow_left"][0],facePoints["right_eyebrow_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["left_eyebrow_right"][0], facePoints["left_eyebrow_right"][1] ), (x,facePoints["left_eyebrow_right"][1]), red, 2) 
-    cv2.line(img, (facePoints["right_eyebrow_left"][0], facePoints["right_eyebrow_left"][1] ), (x+w,facePoints["right_eyebrow_left"][1]), red, 2) 
+    cv2.line(img, (int(facePoints["left_eyebrow_right"][0]), int(facePoints["left_eyebrow_right"][1])), (int(facePoints["right_eyebrow_left"][0]), int(facePoints["right_eyebrow_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["left_eyebrow_right"][0]), int(facePoints["left_eyebrow_right"][1])), (int(x), int(facePoints["left_eyebrow_right"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eyebrow_left"][0]), int(facePoints["right_eyebrow_left"][1])), (int(x+w), int(facePoints["right_eyebrow_left"][1])), red, 2) 
 
     #Subnazale
-    cv2.line(img, (facePoints["nose_bottom"][0], facePoints["nose_bottom"][1] ), (x,  facePoints["nose_bottom"][1] ), red, 2)
-    cv2.line(img, (facePoints["nose_bottom"][0], facePoints["nose_bottom"][1] ), (x+w,  facePoints["nose_bottom"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), (int(x), int(facePoints["nose_bottom"][1])), red, 2)
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), (int(x+w), int(facePoints["nose_bottom"][1])), red, 2) 
 
     #Menton
-    cv2.line(img, (facePoints["chin_down"][0], facePoints["chin_down"][1] ), (x,  facePoints["chin_down"][1] ), red, 2)
-    cv2.line(img, (facePoints["chin_down"][0], facePoints["chin_down"][1] ), (x+w,  facePoints["chin_down"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["chin_down"][0]), int(facePoints["chin_down"][1])), (int(x), int(facePoints["chin_down"][1])), red, 2)
+    cv2.line(img, (int(facePoints["chin_down"][0]), int(facePoints["chin_down"][1])), (int(x+w), int(facePoints["chin_down"][1])), red, 2) 
     return img
 
 #public
@@ -125,17 +125,17 @@ def drawVFM(img,faceBorders,facePoints,color):
 
 
     #seperator 1
-    cv2.line(img, (facePoints["face_left"][0], y), (facePoints["face_left"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(y)), (int(facePoints["face_left"][0]), int(y+h)), red, 2) 
     #seperator 2
-    cv2.line(img, (facePoints["left_eye_left"][0], y), (facePoints["left_eye_left"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_left"][0]), int(y)), (int(facePoints["left_eye_left"][0]), int(y+h)), red, 2) 
     #seperator 3
-    cv2.line(img, (facePoints["left_eye_right"][0], y), (facePoints["left_eye_right"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_right"][0]), int(y)), (int(facePoints["left_eye_right"][0]), int(y+h)), red, 2) 
     #seperator 4
-    cv2.line(img, (facePoints["right_eye_left"][0], y), (facePoints["right_eye_left"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_left"][0]), int(y)), (int(facePoints["right_eye_left"][0]), int(y+h)), red, 2) 
     #seperator 5
-    cv2.line(img, (facePoints["right_eye_right"][0], y), (facePoints["right_eye_right"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_right"][0]), int(y)), (int(facePoints["right_eye_right"][0]), int(y+h)), red, 2) 
     #seperator 6
-    cv2.line(img, (facePoints["face_right"][0], y), (facePoints["face_right"][0], y+h), red, 2) 
+    cv2.line(img, (int(facePoints["face_right"][0]), int(y)), (int(facePoints["face_right"][0]), int(y+h)), red, 2)  
 
     return img
 
@@ -158,7 +158,7 @@ def drawTZM(img,faceBorders,facePoints,color):
     red = color
     (x,y,w,h) = faceBorders
     #Trichion
-    cv2.line(img, (facePoints["nose_bottom"][0], y), (facePoints["nose_bottom"][0], facePoints["chin_down"][1]), red, 2) 
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(y)), (int(facePoints["nose_bottom"][0]), int(facePoints["chin_down"][1])), red, 2) 
 
     #Zygoma
     #nose- mouth avg
@@ -168,7 +168,7 @@ def drawTZM(img,faceBorders,facePoints,color):
     zygoma_y = (y_avg + facePoints["nose_bottom"][1]) /2
 
     zygoma_y = int(zygoma_y)
-    cv2.line(img, (facePoints["face_left"][0], zygoma_y), (facePoints["face_right"][0], zygoma_y), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(zygoma_y)), (int(facePoints["face_right"][0]), int(zygoma_y)), red, 2) 
     #Menton (Eyes)
 
 
@@ -192,11 +192,11 @@ def drawTSM(img,faceBorders,facePoints,color):
     red = color
     (x,y,w,h) = faceBorders
     #Trichion
-    cv2.line(img, (facePoints["face_left"][0], y), (facePoints["face_right"][0], y), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(y)), (int(facePoints["face_right"][0]), int(y)), red, 2) 
     #Subnazale
-    cv2.line(img, (x,facePoints["nose_bottom"][1] ), (x+w, facePoints["nose_bottom"][1]), red, 2) 
+    cv2.line(img, (int(x), int(facePoints["nose_bottom"][1])), (int(x+w), int(facePoints["nose_bottom"][1])), red, 2) 
     #Menton
-    cv2.line(img, (x,facePoints["chin_down"][1] ), (x+w, facePoints["chin_down"][1]), red, 2) 
+    cv2.line(img, (int(x), int(facePoints["chin_down"][1])), (int(x+w), int(facePoints["chin_down"][1])), red, 2)
     return img
 
 #public
@@ -215,7 +215,7 @@ def drawLC(img,faceBorders,facePoints,color):
     red = color
     (x,y,w,h) = faceBorders
     #Lateral Centus
-    cv2.line(img,(facePoints["left_eyebrow_left"][0],facePoints["left_eyebrow_right"][1] ), (facePoints["right_eyebrow_right"][0], facePoints["right_eyebrow_left"][1]), red, 2) 
+    cv2.line(img, (int(facePoints["left_eyebrow_left"][0]), int(facePoints["left_eyebrow_right"][1])), (int(facePoints["right_eyebrow_right"][0]), int(facePoints["right_eyebrow_left"][1])), red, 2) 
 
     #Mouth y avg
 
@@ -225,64 +225,64 @@ def drawLC(img,faceBorders,facePoints,color):
     y_avg = (facePoints["nose_bottom"][1] +  m_y_avg) /2
     y_avg = int(y_avg)
 
-    cv2.line(img,(facePoints["mouth_left"][0],y_avg ), (facePoints["mouth_right"][0], y_avg), red, 2) 
+    cv2.line(img, (int(facePoints["mouth_left"][0]), int(y_avg)), (int(facePoints["mouth_right"][0]), int(y_avg)), red, 2) 
     return img
 
 #public
 def drawMask(img,faceBorders,facePoints,color):
 
     red = color
-    cv2.line(img, (facePoints["face_left"][0], facePoints["face_left"][1] ), (facePoints["left_eye_left"][0],facePoints["left_eye_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["face_right"][0], facePoints["face_right"][1] ), (facePoints["right_eye_right"][0],facePoints["right_eye_right"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(facePoints["face_left"][1])), (int(facePoints["left_eye_left"][0]), int(facePoints["left_eye_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["face_right"][0]), int(facePoints["face_right"][1])), (int(facePoints["right_eye_right"][0]), int(facePoints["right_eye_right"][1])), red, 2) 
 
-    cv2.line(img, (facePoints["left_eye_left"][0], facePoints["left_eye_left"][1] ), (facePoints["mouth_left"][0],facePoints["mouth_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eye_right"][0], facePoints["right_eye_right"][1] ), (facePoints["mouth_right"][0],facePoints["mouth_right"][1] ), red, 2) 
-
-
-    cv2.line(img, (facePoints["face_left"][0], facePoints["face_left"][1] ), (facePoints["mouth_left"][0],facePoints["mouth_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["face_right"][0], facePoints["face_right"][1] ), (facePoints["mouth_right"][0],facePoints["mouth_right"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_left"][0]), int(facePoints["left_eye_left"][1])), (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_right"][0]), int(facePoints["right_eye_right"][1])), (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), red, 2) 
 
 
-    cv2.line(img, (facePoints["chin_down"][0], facePoints["chin_down"][1] ), (facePoints["mouth_left"][0],facePoints["mouth_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["chin_down"][0], facePoints["chin_down"][1] ), (facePoints["mouth_right"][0],facePoints["mouth_right"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(facePoints["face_left"][1])), (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["face_right"][0]), int(facePoints["face_right"][1])), (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), red, 2) 
 
 
-    cv2.line(img, (facePoints["nose_bottom"][0], facePoints["nose_bottom"][1] ), (facePoints["mouth_left"][0],facePoints["mouth_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["nose_bottom"][0], facePoints["nose_bottom"][1] ), (facePoints["mouth_right"][0],facePoints["mouth_right"][1] ), red, 2) 
-
-    cv2.line(img, (facePoints["left_eye_right"][0], facePoints["left_eye_right"][1] ), (facePoints["mouth_left"][0],facePoints["mouth_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eye_left"][0], facePoints["right_eye_left"][1] ), (facePoints["mouth_right"][0],facePoints["mouth_right"][1] ), red, 2) 
-
-    cv2.line(img, (facePoints["left_eye_right"][0], facePoints["left_eye_right"][1] ), (facePoints["nose_bottom"][0],facePoints["nose_bottom"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eye_left"][0], facePoints["right_eye_left"][1] ), (facePoints["nose_bottom"][0],facePoints["nose_bottom"][1] ), red, 2) 
-
-    cv2.line(img, (facePoints["face_left"][0], facePoints["face_left"][1] ), (facePoints["left_eyebrow_left"][0],facePoints["left_eyebrow_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["face_right"][0], facePoints["face_right"][1] ), (facePoints["right_eyebrow_right"][0],facePoints["right_eyebrow_right"][1] ), red, 2) 
-
-    cv2.line(img, (facePoints["left_eyebrow_left"][0], facePoints["left_eyebrow_left"][1] ), (facePoints["left_eye_left"][0],facePoints["left_eye_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eyebrow_right"][0], facePoints["right_eyebrow_right"][1] ), (facePoints["right_eye_right"][0],facePoints["right_eye_right"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["chin_down"][0]), int(facePoints["chin_down"][1])), (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["chin_down"][0]), int(facePoints["chin_down"][1])), (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), red, 2) 
 
 
-    cv2.line(img, (facePoints["left_eye_right"][0], facePoints["left_eye_right"][1] ), (facePoints["left_eyebrow_right"][0],facePoints["left_eyebrow_right"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eye_left"][0], facePoints["right_eye_left"][1] ), (facePoints["right_eyebrow_left"][0],facePoints["right_eyebrow_left"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), red, 2) 
 
-    cv2.line(img, (facePoints["left_eyebrow_right"][0], facePoints["left_eyebrow_right"][1] ), (facePoints["left_eyebrow_left"][0],facePoints["left_eyebrow_left"][1] ), red, 2) 
-    cv2.line(img, (facePoints["right_eyebrow_left"][0], facePoints["right_eyebrow_left"][1] ), (facePoints["right_eyebrow_right"][0],facePoints["right_eyebrow_right"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_right"][0]), int(facePoints["left_eye_right"][1])), (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_left"][0]), int(facePoints["right_eye_left"][1])), (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), red, 2) 
 
-    cv2.line(img, (facePoints["face_left"][0], facePoints["face_left"][1] ), (facePoints["face_left"][0],facePoints["chin_down"][1] ), red, 2) 
-    cv2.line(img, (facePoints["face_right"][0], facePoints["face_right"][1] ), (facePoints["face_right"][0],facePoints["chin_down"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_right"][0]), int(facePoints["left_eye_right"][1])), (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_left"][0]), int(facePoints["right_eye_left"][1])), (int(facePoints["nose_bottom"][0]), int(facePoints["nose_bottom"][1])), red, 2) 
 
-    cv2.line(img, (facePoints["face_left"][0], facePoints["chin_down"][1] ), (facePoints["face_right"][0],facePoints["chin_down"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(facePoints["face_left"][1])), (int(facePoints["left_eyebrow_left"][0]), int(facePoints["left_eyebrow_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["face_right"][0]), int(facePoints["face_right"][1])), (int(facePoints["right_eyebrow_right"][0]), int(facePoints["right_eyebrow_right"][1])), red, 2) 
+
+    cv2.line(img, (int(facePoints["left_eyebrow_left"][0]), int(facePoints["left_eyebrow_left"][1])), (int(facePoints["left_eye_left"][0]), int(facePoints["left_eye_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eyebrow_right"][0]), int(facePoints["right_eyebrow_right"][1])), (int(facePoints["right_eye_right"][0]), int(facePoints["right_eye_right"][1])), red, 2) 
 
 
-    cv2.line(img, (facePoints["mouth_left"][0], facePoints["mouth_left"][1] ), (facePoints["face_left"][0],facePoints["chin_down"][1] ), red, 2) 
-    cv2.line(img, (facePoints["mouth_right"][0], facePoints["mouth_right"][1] ), (facePoints["face_right"][0],facePoints["chin_down"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_right"][0]), int(facePoints["left_eye_right"][1])), (int(facePoints["left_eyebrow_right"][0]), int(facePoints["left_eyebrow_right"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eye_left"][0]), int(facePoints["right_eye_left"][1])), (int(facePoints["right_eyebrow_left"][0]), int(facePoints["right_eyebrow_left"][1])), red, 2) 
+
+    cv2.line(img, (int(facePoints["left_eyebrow_right"][0]), int(facePoints["left_eyebrow_right"][1])), (int(facePoints["left_eyebrow_left"][0]), int(facePoints["left_eyebrow_left"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["right_eyebrow_left"][0]), int(facePoints["right_eyebrow_left"][1])), (int(facePoints["right_eyebrow_right"][0]), int(facePoints["right_eyebrow_right"][1])), red, 2) 
+
+    cv2.line(img, (int(facePoints["face_left"][0]), int(facePoints["face_left"][1])), (int(facePoints["face_left"][0]), int(facePoints["chin_down"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["face_right"][0]), int(facePoints["face_right"][1])), (int(facePoints["face_right"][0]), int(facePoints["chin_down"][1])), red, 2) 
+
+    cv2.line(img, (int(facePoints["face_left"][0]), int(facePoints["chin_down"][1])), (int(facePoints["face_right"][0]), int(facePoints["chin_down"][1])), red, 2) 
+
+
+    cv2.line(img, (int(facePoints["mouth_left"][0]), int(facePoints["mouth_left"][1])), (int(facePoints["face_left"][0]), int(facePoints["chin_down"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["mouth_right"][0]), int(facePoints["mouth_right"][1])), (int(facePoints["face_right"][0]), int(facePoints["chin_down"][1])), red, 2) 
 
 
 
-    cv2.line(img, (facePoints["left_eyebrow_right"][0], facePoints["left_eyebrow_right"][1] ), (facePoints["right_eyebrow_left"][0],facePoints["right_eyebrow_left"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eyebrow_right"][0]), int(facePoints["left_eyebrow_right"][1])), (int(facePoints["right_eyebrow_left"][0]), int(facePoints["right_eyebrow_left"][1])), red, 2) 
 
-    cv2.line(img, (facePoints["left_eye_right"][0], facePoints["left_eye_right"][1] ), (facePoints["right_eye_left"][0],facePoints["right_eye_left"][1] ), red, 2) 
+    cv2.line(img, (int(facePoints["left_eye_right"][0]), int(facePoints["left_eye_right"][1])), (int(facePoints["right_eye_left"][0]), int(facePoints["right_eye_left"][1])), red, 2) 
 
 
     return img

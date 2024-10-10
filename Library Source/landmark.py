@@ -188,21 +188,21 @@ def drawLandmark(img,landmarks,color):
 
                 if i==8:
                     chin_down= [x,y]
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]),color_main, 3)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 3)
 
             #sol kas
             if i<=20 and i >16:
 
                 if i== 17:
                     left_eyebrow_left = [x,y]
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 4)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 4)
 
             if i==21:
                 left_eyebrow_right = [x,y]
 
             #sag kas
             if i<=25 and i >21:
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 4)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 4)
                 if i ==22:
                     right_eyebrow_left = [x,y]
 
@@ -211,7 +211,7 @@ def drawLandmark(img,landmarks,color):
 
             #burun kemigi
             if i<=29 and i >26:
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]),color_main, 6)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 6)
 
             #alt burun
             if i<=34 and i >30:
@@ -222,14 +222,14 @@ def drawLandmark(img,landmarks,color):
                 if i==33:
                      nose_bottom = [x,y]
 
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 4)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 4)
 
             if i==35:
                 nose_right = [x,y]
 
             #sol goz konveks
             if i<=40 and i >35:
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 2)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 2)
 
 
                 if i== 36:  #start left eye
@@ -239,11 +239,11 @@ def drawLandmark(img,landmarks,color):
                     left_eye_right = [x,y]
 
                 if i == 40:
-                    cv2.line(img, (array[36][0],array[36][1]),(array[41][0], array[41][1]), color_main, 2)
+                    cv2.line(img, (int(array[36][0]), int(array[36][1])), (int(array[41][0]), int(array[41][1])), color_main, 2)
 
             #sag goz konveks
             if i<=46 and i >41:
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 2)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 2)
 
 
                 if i== 42:  #start left eye
@@ -253,7 +253,7 @@ def drawLandmark(img,landmarks,color):
                     right_eye_right = [x,y]
 
                 if i == 46:
-                    cv2.line(img, (x,y),(array[42][0], array[46][1]),color_main, 2)
+                    cv2.line(img, (int(x), int(y)), (int(array[42][0]), int(array[46][1])), color_main, 2)
 
             if i==48:
                 mouth_left = [x,y]
@@ -263,12 +263,12 @@ def drawLandmark(img,landmarks,color):
                 if i==54:
                     mouth_right = [x,y]
 
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 4)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 4)
                 if i == 59:
-                    cv2.line(img, (array[48][0],array[48][1]),(array[50][0], array[50][1]), color_main, 4)
+                    cv2.line(img, (int(array[48][0]), int(array[48][1])), (int(array[50][0]), int(array[50][1])), color_main, 4)
             #dudak
             if i<=62 and i >60:
-                cv2.line(img, (x,y),(array[i+1][0], array[i+1][1]), color_main, 4)
+                cv2.line(img, (int(x), int(y)), (int(array[i+1][0]), int(array[i+1][1])), color_main, 4)
 
             if i==16:
                 face_right = [x,y]
