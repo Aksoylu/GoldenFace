@@ -158,7 +158,7 @@ def drawTZM(img,faceBorders,facePoints,color):
     red = color
     (x,y,w,h) = faceBorders
     #Trichion
-    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(y)), (int(facePoints["nose_bottom"][0]), int(facePoints["chin_down"][1])), red, 2) 
+    cv2.line(img, (int(facePoints["nose_bottom"][0]), int(y)), (int(facePoints["nose_bottom"][0]), int(facePoints["chin_down"][1])), red, 2)
 
     #Zygoma
     #nose- mouth avg
@@ -168,7 +168,7 @@ def drawTZM(img,faceBorders,facePoints,color):
     zygoma_y = (y_avg + facePoints["nose_bottom"][1]) /2
 
     zygoma_y = int(zygoma_y)
-    cv2.line(img, (int(facePoints["face_left"][0]), int(zygoma_y)), (int(facePoints["face_right"][0]), int(zygoma_y)), red, 2) 
+    cv2.line(img, (int(facePoints["face_left"][0]), int(zygoma_y)), (int(facePoints["face_right"][0]), int(zygoma_y)), red, 2)
     #Menton (Eyes)
 
 
